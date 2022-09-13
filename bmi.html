@@ -9,14 +9,26 @@
     <link rel="stylesheet" href="./css/style.css">
 
     <style>
-        form {
+        #box {
+            background-color: tomato;
+            margin-top: 12px;
+            padding: 24px 0px;
+            border-radius: 12px;
+        }
+
+        #box {
             width: 50%;
             margin: 24px auto;
         }
 
+        /* form {
+            width: 50%;
+            margin: 24px auto;
+        } */
+
         /* 小於某個寬度時，自動修正某個標籤 */
-        @media screen and (max-width:1024px) {
-            form {
+        @media screen and (max-width:768px) {
+            #box {
                 width: 100%;
             }
 
@@ -26,29 +38,43 @@
                 font-size: 18px;
             }
         }
+
+        #comment {
+            background-color: aqua;
+            width: 80%;
+            margin: 0 auto;
+            height: 128px;
+            font-size: 48px;
+            line-height: 128px;
+            border-radius: 12px;
+        }
     </style>
 </head>
 
 <body>
     <div id="container">
+        <p>版本:1.0</p>
         <div class="title">BMI計算機</div>
-        <form action="">
-            <!--input: name後端辨識 id前端辨識 required必填欄位 step可填小數-->
+        <!-- <form action=""> -->
+        <!--input: name後端辨識 id前端辨識 required必填欄位 step可填小數 value設預設值-->
+        <div id="box">
             <label for="name">姓名</label>
-            <input type="text" name="name" id="name">
-            <br>
-            <label for="height">身高(公分)</label>
-            <input type="number" name="height" id="height" required step="0.1">
-            <br>
-            <label for="weight">體重(公斤)</label>
-            <input type="number" name="weight" id="weight" required step="0.1">
+            <input type="text" name="name" id="name" placeholder="姓名"><br>
+            <label for="height">身高</label>
+            <input type="number" name="height" id="height" required step="0.1" placeholder="身高"><br>
+            <label for="weight">體重</label>
+            <input type="number" name="weight" id="weight" required step="0.1" placeholder="體重">
             <p>
-                <button type="submit">計算</button>
+                <button type="submit" id="calc">計算</button>
             </p>
-
-            <a href="./index.html">回首頁</a>
-        </form>
+            <p id="comment">
+                BMI:<span class="bmi"></span>
+            </p>
+        </div>
+        <!-- </form> -->
+        <a href="./index.html">回首頁</a>
     </div>
+    <script src="./js/bmi.js"></script>
 </body>
 
 </html>
